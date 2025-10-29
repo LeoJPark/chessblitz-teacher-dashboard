@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaWifi, FaUsers, FaEllipsisV } from "react-icons/fa";
-import logoImage from "../assets/logo.png";
+import logoTransparent from "../assets/logo_transparent.png";
 
 export default function ClassroomCard({ classroom }) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ClassroomCard({ classroom }) {
       {/* Header with logo background */}
       <div 
         className="card-header logo-background"
-        style={{ backgroundImage: `url(${logoImage})` }}
+        style={{ backgroundImage: `url(${logoTransparent})`, backgroundPosition: 'center left' }}
       >
         {/* Menu dots */}
         <div className="card-menu">

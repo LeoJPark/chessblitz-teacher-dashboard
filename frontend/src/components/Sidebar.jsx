@@ -1,9 +1,9 @@
 import logoImage from "../assets/logo.png";
-import profileIcon from "../assets/profile-icon.png";
-import classroomsIcon from "../assets/classrooms-icon.png";
-import createIcon from "../assets/create-icon.png";
-import settingsIcon from "../assets/settings-icon.png";
-import logoutIcon from "../assets/logout-icon.png";
+import profileIcon from "../assets/profile.png";
+import classroomsIcon from "../assets/classrooms.png";
+import createIcon from "../assets/add_classroom.png";
+import settingsIcon from "../assets/settings.png";
+import logoutIcon from "../assets/logout.png";
 
 export default function Sidebar() {
   return (
@@ -26,12 +26,12 @@ export default function Sidebar() {
         </div>
 
         {/* My Classrooms - Active */}
-        <div className="nav-item active">
+        <a href="/classrooms" className="nav-item active">
           <div className="nav-icon">
             <img src={classroomsIcon} alt="My Classrooms" />
           </div>
           <span className="nav-text">My Classrooms</span>
-        </div>
+        </a>
 
         {/* Create Classrooms */}
         <div className="nav-item">
@@ -52,12 +52,12 @@ export default function Sidebar() {
 
       {/* Log Out */}
       <div className="sidebar-footer">
-        <div className="nav-item">
+        <a href="/" className="nav-item">
           <div className="nav-icon">
             <img src={logoutIcon} alt="Log Out" />
           </div>
           <span className="nav-text">Log Out</span>
-        </div>
+        </a>
       </div>
     </div>
   );
