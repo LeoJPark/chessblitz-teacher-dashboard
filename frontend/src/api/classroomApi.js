@@ -50,3 +50,48 @@ export function getClassroomById(id) {
     }, 100);
   });
 }
+
+export function createClassroom(name) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const colors = ["#4A90E2", "#7B68EE", "#E74C3C", "#3498DB", "#9B59B6", "#16A085", "#F39C12"];
+      const newClassroom = {
+        id: mockClassrooms.length + 1,
+        name: name,
+        students: 20,
+        filled: 0,
+        background: colors[Math.floor(Math.random() * colors.length)]
+      };
+      mockClassrooms.push(newClassroom);
+      resolve(newClassroom);
+    }, 100);
+  });
+}
+
+export function updateClassroom(id, name) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const classroom = mockClassrooms.find(c => c.id === id);
+      if (classroom) {
+        classroom.name = name;
+        resolve(classroom);
+      } else {
+        resolve(null);
+      }
+    }, 100);
+  });
+}
+
+export function deleteClassroom(id) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const index = mockClassrooms.findIndex(c => c.id === id);
+      if (index !== -1) {
+        mockClassrooms.splice(index, 1);
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    }, 100);
+  });
+}

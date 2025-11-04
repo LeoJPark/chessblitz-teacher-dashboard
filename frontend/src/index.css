@@ -215,10 +215,62 @@ a.nav-item {
   padding: 8px;
   border-radius: 50%;
   transition: background-color 0.2s;
+  z-index: 10;
 }
 
 .card-menu:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-menu-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeInDown 0.15s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-item {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  color: #202124;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+  display: block;
+}
+
+.menu-item:hover {
+  background-color: #f1f3f4;
+}
+
+.menu-item.delete {
+  color: #d32f2f;
+}
+
+.menu-item.delete:hover {
+  background-color: #fce8e6;
 }
 
 .card-body {
@@ -561,4 +613,145 @@ a.nav-item {
   .nav-item { padding: 8px 4px; }
   .nav-icon img { width: 28px; height: 28px; }
   .nav-text { display: none; }
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 448px;
+  max-height: 90vh;
+  overflow: auto;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #202124;
+  margin: 0;
+  line-height: 28px;
+}
+
+.modal-form {
+  padding: 24px;
+}
+
+.modal-field {
+  margin-bottom: 24px;
+}
+
+.modal-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #5f6368;
+  margin-bottom: 8px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.modal-input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 1px #1a73e8;
+}
+
+.modal-input::placeholder {
+  color: #9aa0a6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.modal-button {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  min-width: 88px;
+}
+
+.modal-button.cancel {
+  background-color: transparent;
+  color: #1a73e8;
+}
+
+.modal-button.cancel:hover {
+  background-color: rgba(26, 115, 232, 0.08);
+}
+
+.modal-button.create {
+  background-color: #1a73e8;
+  color: white;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.modal-button.create:hover {
+  background-color: #1557b0;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+}
+
+.modal-button.create:disabled {
+  background-color: rgba(60, 64, 67, 0.12);
+  color: rgba(60, 64, 67, 0.38);
+  cursor: not-allowed;
+  box-shadow: none;
 }

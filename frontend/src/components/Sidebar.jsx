@@ -5,7 +5,7 @@ import createIcon from "../assets/add_classroom.png";
 import settingsIcon from "../assets/settings.png";
 import logoutIcon from "../assets/logout.png";
 
-export default function Sidebar() {
+export default function Sidebar({ onCreateClassroomClick }) {
   return (
     <div className="sidebar">
       {/* Logo */}
@@ -34,7 +34,7 @@ export default function Sidebar() {
         </a>
 
         {/* Create Classrooms */}
-        <div className="nav-item">
+        <div className="nav-item" onClick={onCreateClassroomClick}>
           <div className="nav-icon">
             <img src={createIcon} alt="Create Classrooms" />
           </div>
